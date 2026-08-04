@@ -1,29 +1,35 @@
 let postForm, addTechBut, addFeatureBut,
-    techStackContainer, featuresContainer, techField, featureField;
+    techStackContainer, featuresContainer, techFields, featureFields;
 
 document.addEventListener("DOMContentLoaded", () =>
 {
     postForm = document.querySelector(".js-post-form");
     techStackContainer = document.querySelector(".js-tech-stack-container");
-    techField = document.querySelector(".js-tech-field");
+    techFields = document.querySelectorAll(".js-tech-field");
     featuresContainer = document.querySelector(".js-features-container");
-    featureField = document.querySelector(".js-feature-field");
+    featureFields = document.querySelectorAll(".js-feature-field");
     addTechBut = document.querySelector(".js-add-tech-but");
     addFeatureBut = document.querySelector(".js-add-feature-but");
 
-    addRemoveListener(techField);
-    addRemoveListener(featureField);
+    for(let i = 0; i < techFields.length; ++i)
+    {
+        addRemoveListener(techFields[i]);
+    }
+    for(let i = 0; i < featureFields.length; ++i)
+    {
+        addRemoveListener(featureFields[i]);
+    }
 
     addTechBut.addEventListener("click", () =>
     {
-        makeNewField(addTechBut, techStackContainer, techField);        
+        makeNewField(techStackContainer, techFields[0]);        
     })
     addFeatureBut.addEventListener("click", () =>
     {
-        makeNewField(addFeatureBut, featuresContainer, featureField);
+        makeNewField(featuresContainer, featureFields[0]);
     })
 
-    function makeNewField(but, container, field)
+    function makeNewField(container, field)
     {
         const newField = field.cloneNode(true);
         const inp = newField.querySelector('input');
