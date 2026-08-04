@@ -5,6 +5,7 @@ services:
     volumes:
       - ../showmetheworld/dist:/var/www/html/public/showmetheworld
       - ../showmetheworld/smtw-backend:/var/www/html/public/smtw-backend
+      - ./public/store/images/uploaded:/var/www/html/public/store/images/uploaded
     environment:
       - DB_HOST=db
       - DB_CONNECTION=mysql
