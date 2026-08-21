@@ -38,8 +38,6 @@ services:
     container_name: sepwebdev-phpmyadmin-1
     environment:
       - PMA_HOST=db
-      - PMA_USER=root
-      - PMA_PASSWORD=${DB_PASSWORD}
     depends_on:
       - db
     networks:
