@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
 
 # Install required PHP extensions for Laravel and enable Apache mod_rewrite
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
     && a2enmod rewrite
 
 # Get latest Composer binary

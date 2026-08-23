@@ -8,9 +8,11 @@ services:
       - ./public/store/images/uploaded:/var/www/html/public/store/images/uploaded
     environment:
       - DB_HOST=sep-common-db-1
-      - DB_CONNECTION=mysql
       - DB_PORT=3306
       - DB_DATABASE=${DB_DATABASE:-sepwebdev}
+      - CACHE_DRIVER=redis
+      - SESSION_DRIVER=redis
+      - REDIS_HOST=sep-common-redis-1
       - DB_USERNAME=root
       - DB_PASSWORD=${SHARED_DB_PASSWORD}
     networks:
