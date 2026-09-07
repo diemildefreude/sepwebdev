@@ -131,7 +131,7 @@ function deleteImage($path)
 {
     if($path)
     {
-        Storage::disk('public')->delete($path);
+        Storage::disk('store')->delete(preg_replace('#/+#', '/', $path));
     }
 }
 
@@ -141,9 +141,9 @@ function storeImage($request, $field, $post=null)
     {
         if($post && $post[$field])
         {
-            Storage::disk('public')->delete($post[$field]);
+            Storage::disk('store')->delete(preg_replace('#/+#', '/', $post[$field]));
         }
-        return Storage::disk('public')->put('images/uploaded/', $request[$field]);
+        return Storage::disk('store')->put('images/uploaded', $request[$field]);
     }
     if($post)
     {

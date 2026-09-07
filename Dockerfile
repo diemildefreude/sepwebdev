@@ -33,8 +33,8 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-av
 WORKDIR /var/www/html
 COPY . /var/www/html
 
-# Set strict write permissions on storage and cache folders for the web server user
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+# Set strict write permissions on storage, cache, and public upload folders for the web server user
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public/store
 
 # Install production PHP dependencies and build Vite JavaScript/CSS bundles
 RUN composer install --optimize-autoloader --no-dev

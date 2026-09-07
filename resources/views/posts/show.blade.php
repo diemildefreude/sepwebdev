@@ -27,17 +27,17 @@
                 <div class="sec-column">
                     <div class="devices-container">
                         <div class="device-img-container large-device desktop">
-                            <img src="{{ asset('store/' . $post->desktop_img ?? 'images/default_desktop.webp') }}" alt="">
+                            <img src="{{ asset('store/' . ($post->desktop_img ?: 'images/default_desktop.webp')) }}" alt="">
                         </div>
                         <div class="device-img-container large-device laptop">
-                            <img src="{{ asset('store/' . $post->laptop_img ?? 'images/default_laptop.webp') }}" alt="">
+                            <img src="{{ asset('store/' . ($post->laptop_img ?: 'images/default_laptop.webp')) }}" alt="">
                         </div>
                         <div class="device-img-container small-device-container">
                             <div class="small-device phone">
-                                <img src="{{ asset('store/' . $post->phone_img ?? 'images/default_phone.webp') }}" alt="">
+                                <img src="{{ asset('store/' . ($post->phone_img ?: 'images/default_phone.webp')) }}" alt="">
                             </div>
                             <div class="small-device tablet">
-                                <img src="{{ asset('store/' . $post->tablet_img ?? 'images/default_tablet.webp') }}" alt="">
+                                <img src="{{ asset('store/' . ($post->tablet_img ?: 'images/default_tablet.webp')) }}" alt="">
                             </div>
                         </div>
                     </div>

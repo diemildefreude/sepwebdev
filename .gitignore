@@ -24,4 +24,5 @@ Homestead.json
 *.sql
 public/showmetheworld
 public/smtw-backend
-public/store/images/uploaded/
+public/store/images/uploaded/*
+!public/store/images/uploaded/.gitignore
